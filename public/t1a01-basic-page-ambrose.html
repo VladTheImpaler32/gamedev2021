@@ -1,5 +1,5 @@
 <head>
-<h5>v0.0.33</h5>
+<h5>v0.0.34</h5>
 <h1 align=center>Ambrose's Basic Webpage</h1>
 <style>
 .cell {cursor: wait;}
@@ -21,7 +21,7 @@
  <!---example code to get full marks, ofc teach him gets 9/9--->
  
 <input type=button value="1, input/output" onClick="{
-  document.getElementById('myDiv01').innerHTML = 'Input/Output is the process of communicating with the outside world'
+  document.getElementById('myDiv01').innerHTML = 'Input/Output is the process of communicating with the outside world <br><br> Examples: input-prompts, text input, buttons, etc. output-update the page, play a sound, change some text, etc.'
   }">
 
 <input type=button value="2, Variables" onClick="{
@@ -29,7 +29,15 @@
   }">
  
  <input type=button value="3, Loops" onClick="{
-  document.getElementById('myDiv01').innerHTML = 'Loops are used to repeatedly run a block of code until a certain condition is met. There are different types of loops like a <br>while loop, for loop, and for/in loops, for/of loops, and do/while loops.'
+  document.getElementById('myDiv01').innerHTML = 'Loops are used to repeatedly run a block of code until a certain condition is met. There are different types of loops like a <br>while loop, for loop, and for/in loops, for/of loops, and do/while loops. <pre>Examples:do {
+  		    	(code block to be executed)	
+		    }
+		    while (condition);
+
+		 while (i < 10) {
+  		    text += "The number is " + i;
+  		    i++;
+  } </pre>'
   }">
  
  <input type=button value="4, Decisions" onClick="{
