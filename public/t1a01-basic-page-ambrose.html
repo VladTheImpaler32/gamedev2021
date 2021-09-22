@@ -17,8 +17,6 @@
 <iframe width="350" height="250" src="https://www.youtube.com/embed/-diMa6o8f7I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p class="cell">Hover Over Me!</p><br> 
 </div>
-
- <!---example code to get full marks, ofc teach him gets 9/9--->
  
 <input type=button value="1, input/output" onClick="{
   document.getElementById('myDiv01').innerHTML = 'Input/Output is the process of communicating with the outside world <br><br> Examples: input-prompts, text input, buttons, etc. output-update the page, play a sound, change some text, etc.'
@@ -49,12 +47,20 @@
   }">
  
  <input type=button value="8, Objects" onClick="{
-  document.getElementById('myDiv01').innerHTML = 'Objects are fancy variables with properties made of arrays. <br>For Example in real life, a car is an object. A car has properties like weight and color, and methods like start and stop:<br><img src='object-example.png' width:50%>'
+  document.getElementById('myDiv01').innerHTML = 'Objects are fancy variables with properties made of arrays. <br>For Example in real life, a car is an object. A car has properties like weight and color, and methods like start and stop.'
   }">
  
- <input type=button value="9, Classes" onClick="{
-  document.getElementById('myDiv01').innerHTML = 'Classes'
+ <input type=button value="9, Classes" onClick="myClickImg(); {
+  document.getElementById('myDiv01').innerHTML = 'Classes are a template for creating objects. They encapsulate data with code to work on that data. Whenever you use a \'.\' you\'re probably using a class'
   }">
  
-<div id="myDiv01">...</div>
+  <script>
+    function myClickImg(){
+    text = "<img src='object-example.png'>";
+    document.getElementById('myDiv01').innerHTML = text;
+    }
+
+ </script> 
+ 
+<div id="myDiv01">...</div><br><br><br>
 </body>
