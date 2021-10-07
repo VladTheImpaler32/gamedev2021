@@ -50,14 +50,11 @@ I do css inside the tag, it overpowers all other methods.<br>
 
 <div id="mySelect01" style="user-select:auto;">Select Me!</div>
 <input type=button value="Make Text Unselectable" onClick="{
-	document.getElementById('mySelect01').style.user-select = none
+	document.getElementById('mySelect01').style.user-select = 'none'
 }">
 <br>
 
-<p style="writing-mode: vertical-rl;" id="myText01">look this text is now going vertical</p> 
-<input type=button value="Make Text Unselectable" onClick="{
-	document.getElementById('myText01').style.writing-mode = ' horizontal-tb'
-}">
+
 
 <button onClick="window.location.reload();">Refresh Page</button><br>
 
