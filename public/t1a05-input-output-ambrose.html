@@ -34,15 +34,21 @@
 <div id=myDiv02>x squared = y</div><br><br>
 
 
-<input id=myNum03 type=number value="10" style="width:200px;"><br>
-<input type=button value="Check your age" onClick="{
-	let AgeIn document.getElementById('myNum03').value
-	if (AgeIn >= 13) {
-		document.getElementById('myDiv03').innerHTML = 'you are old enough'
-	}
-	else {
-		document.getElementById('myDiv03').innerHTML = 'you are not old enough'
-	}
+<input id=myText03 type=text value="Your Name Here" style="width:200px;"><br>
+<input type=button value="Hello!" onClick="{
+	let myIn03 = document.getElementById('myText03').value
+	document.getElementById('myDiv03').innerHTML ='Hello ' + myIn03 + '! How are you today?'
 }"><br>
-<div id="myDiv03"></div><br><br>
+<div id=myDiv03>...</div><br><br>
+
+
+<input id=myBox01 type=checkbox><br>
+<input type=button value="Is Box Checked?" onClick="{
+	if (document.getElementById('myBox01').checked
+}"><br>
+<div id=myDiv04>...</div><br><br>
+
+
+
+
 </body>

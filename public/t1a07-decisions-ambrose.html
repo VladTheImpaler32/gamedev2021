@@ -1,0 +1,73 @@
+<head>
+<style>
+
+</style>
+<h5>version 0.0.1</h5>
+</head>
+
+<body style="background-color:plum; font-size:150%;">
+<h2 align=center>t1a07 decisions ambrose</h2><br><br>
+<a href="https://www.w3schools.com/js/js_if_else.asp">Good reference to if...else statments<br>Note: ! = NOT, && = AND, || = OR</a>
+<h4>Example input/output code</h4>
+<pre>
+let myHour = 20
+if (hour < 18) {
+  let myGreeting = "Good day";
+} else { 
+  let myGreeting = "Good Night";
+}
+</pre>
+
+<h4>Example Working Code</h4>
+<input id="myNum01" type=number value="4"><br>
+<input type=button value="Simple if" onClick="{
+	let myIn01 = parseFloat(document.getElementById('myNum01').value)
+	if (myIn01 >= 10) {
+		document.getElementById('myDiv01').innerHTML = myIn01 + ' is greater than 10'
+	} else { 
+		document.getElementById('myDiv01').innerHTML = myIn01 + ' is less than 10'
+	}
+}">
+<br>
+<input type=button value="Complex if" onClick="{
+	let myIn01 = parseFloat(document.getElementById('myNum01').value)
+	if ((myIn01 != 3 || myIn01 > -3) && myIn01 <= 100) {
+		document.getElementById('myDiv01').innerHTML = myIn01 + ' is complex'
+	} else { 
+		document.getElementById('myDiv01').innerHTML = myIn01 + ' is not complex'
+	}
+}">
+<br>
+<div id=myDiv01>x is greater/less than 10</div><br><br>
+
+
+<h4>Else if</h4>
+enter your age:<br> <input id="myNum02" type=number value="5"><br>
+<input type=button value="Check Age" onClick="{
+	let myIn02 = parseFloat(document.getElementById('myNum02').value)
+	if (myIn02 >= 19) {
+		document.getElementById('myDiv02').innerHTML = 'you are ' + myIn02 + ' years old! you are allowed drink, drive, and make a google account!'
+	} else if (myIn02 >= 16) { 
+		document.getElementById('myDiv02').innerHTML = 'you are ' + myIn02 + ' years old! you are only allowed drive and make a google account!'
+	} else if (myIn02 >= 13) {
+		document.getElementById('myDiv02').innerHTML = 'you are ' + myIn02 + ' years old! you are only allowed to make a google account!'
+	} else {
+		document.getElementById('myDiv02').innerHTML = 'you are ' + myIn02 + ' years old! you arent allowed to do anything!'
+	}
+}">
+<br>
+<div id=myDiv02>you are x years old! you can do x, y, and z!</div><br><br>
+
+
+<input id="myNum02" type=number value="5"><br>
+<input type=button value="Complex if" onClick="{
+	let myIn01 = parseFloat(document.getElementById('myNum01').value)
+	if ((myIn01 != 3 || myIn01 > -3) && myIn01 <= 100) {
+		document.getElementById('myDiv01').innerHTML = myIn01 + ' is complex'
+	} else { 
+		document.getElementById('myDiv01').innerHTML = myIn01 + ' is not complex'
+	}
+}">
+<br>
+
+</body>
