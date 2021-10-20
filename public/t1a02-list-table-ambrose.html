@@ -92,12 +92,12 @@
 
 <input type=button value="Go Left" onClick="{
 	let myLeft = document.getElementById('myimage01').style.left
-	document.getElementById('myimage01').style.left = myLeft
+	document.getElementById('myimage01').style.left = myLeft++
 	document.getElementById('myDiv01').innerHTML = myLeft
 }">
 
 <input type=button value="Go Right" onClick="{
-	document.getElementById('myimage01').style.left = '40' + 10
+	document.getElementById('myimage01').style.left = 
 	document.getElementById('myDiv01').innerHTML = 'He went right!'
 }">
 

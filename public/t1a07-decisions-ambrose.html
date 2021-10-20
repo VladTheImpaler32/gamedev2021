@@ -58,16 +58,16 @@ enter your age:<br> <input id="myNum02" type=number value="5"><br>
 <br>
 <div id=myDiv02>you are x years old! you can do x, y, and z!</div><br><br>
 
-
-<input id="myNum02" type=number value="5"><br>
-<input type=button value="Complex if" onClick="{
-	let myIn01 = parseFloat(document.getElementById('myNum01').value)
-	if ((myIn01 != 3 || myIn01 > -3) && myIn01 <= 100) {
-		document.getElementById('myDiv01').innerHTML = myIn01 + ' is complex'
-	} else { 
-		document.getElementById('myDiv01').innerHTML = myIn01 + ' is not complex'
+<h4>is devisible by 2?</h4>
+<br> <input id="myNum03" type=number value="5"><br>
+<input type=button value="Check Divisibility" onClick="{
+	let myIn03 = parseFloat(document.getElementById('myNum03').value)
+	if (((myIn03 % 2 ) + 2 ) % 2) {
+		document.getElementById('myDiv03').innerHTML = myIn03 + ' is NOT devisible by 2'
+	} else {
+		document.getElementById('myDiv03').innerHTML = myIn03 + ' IS devisible by 2'
 	}
 }">
 <br>
-
+<div id=myDiv03>...</div><br><br>
 </body>
