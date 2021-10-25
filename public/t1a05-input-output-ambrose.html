@@ -3,6 +3,11 @@
 
 </style>
 <h5>version 0.2.2</h5>
+<script>
+function myCharCount(obj){
+    document.getElementById("charNum").innerHTML = obj.value.length+' characters'; 
+}
+</script>
 </head>
 
 <body style="background-color:plum; font-size:120%;">
@@ -44,11 +49,21 @@
 
 <input id=myBox01 type=checkbox><br>
 <input type=button value="Is Box Checked?" onClick="{
-	if (document.getElementById('myBox01').checked
+	let BoxChecked =  document.getElementById('myBox01').checked
+	document.getElementById('myDiv04').innerHTML = 'Is the box checked? ' +  BoxChecked
 }"><br>
 <div id=myDiv04>...</div><br><br>
 
 
+<textarea name="message" onkeyup="myCharCount(this);"></textarea>
+<div id="charNum">0 characters</p>
 
 
-</body>
+<u>i have no idea what this achives but i think its cool</u><br>
+hover over me!<input id=myBox02 type=checkbox onMouseOver="{
+	document.getElementById('myBox02').click();
+	document.getElementById('myDiv05').innerHTML = document.getElementById('myBox02').checked;
+}"><br>
+<div id=myDiv05>...</div>
+
+</body> 

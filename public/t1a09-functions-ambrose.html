@@ -14,6 +14,32 @@ function myExFuncton(){
    let myReply = myIn01 + ' + ' + myIn01 + ' = ' + mySum
    return myReply
 }
+
+function myFunc01(){
+	let myIn01 = parseInt(document.getElementById('myText01').value)
+	if (myIn01 % 2 == 1){
+		let myReply = 'your number: ' + myIn01 + ' is odd!'
+		return myReply
+	} else { 
+		let myReply = 'your number: ' + myIn01 + ' is even!'
+		return myReply
+	}
+	
+}
+
+function myFunc02(){
+	let myIn01 = parseInt(document.getElementById('myText01').value)
+	if (myIn01 % 2 == 1){
+		let myReply = 'your number: ' + myIn01 + ' is odd!'
+		return myReply
+		document.body.style.background-color == 'slateblue';
+	} else { 
+		let myReply = 'your number: ' + myIn01 + ' is even!'
+		return myReply
+		document.body.style.background-color == 'pink';
+	}
+	
+}
 </script>
 
 </body>
@@ -30,7 +56,16 @@ function myGrabNumber(){
 <h4>Example working code</h4>
 
 <input type=text id="myText01" value="3"><br>
-<input type=button value="Function Example" onClick="{
+<input type=button value="Add number to its self" onClick="{
    document.getElementById('myDiv01').innerHTML = myExFuncton()
 }"><br>
+
+<input type=button value="Check if Odd/Even" onClick="{
+   document.getElementById('myDiv01').innerHTML = myFunc01()
+}"><br>
+
+<input type=button value="Change background color depending on odd/even" onClick="{
+   document.getElementById('myDiv01').innerHTML = myFunc02()
+}"><br>
+
 <div id="myDiv01">...</div>
