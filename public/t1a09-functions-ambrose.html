@@ -72,6 +72,25 @@ function myFunc05(){
 	}
 	return myOut
 }
+
+function myFunc06(obj){
+    document.getElementById("myDiv02").innerHTML = obj.value.length;
+	document.getElementById('myText03').name = obj.value.length
+}
+
+function myFunc07(){
+	let myIn01 = parseInt(document.getElementById('myText03').name)
+	if (myIn01 % 2 == 1){
+		let myReply = 'your number: ' + myIn01 + ' is odd!'
+		document.getElementById('myBody01').style.backgroundColor = 'slateblue';
+		return myReply
+	} else { 
+		let myReply = 'your number: ' + myIn01 + ' is even!'
+		document.getElementById('myBody01').style.backgroundColor = 'darkturquoise';
+		return myReply
+	}
+	
+}
 </script>
 
 
@@ -110,7 +129,14 @@ function myGrabNumber(){
 
 <button type=button onClick="{
    document.getElementById('myDiv01').innerHTML = myFunc05()
-}">X**Y <span style=color:red>if output odd</span>,  <span style=color:blue>if output even</span></button><br>
+}">X**Y <span style=color:red>if output odd</span>,  <span style=color:blue>if output even</span></button><br><br>
 
 <div id="myDiv01" style="color:black;">...</div>
+
+<input type=text id="myText03" value="Type Here!" maxlength="10" name="0" onkeyup="myFunc06(this);">
+<input type=button value="Change Color Depending on Char Count" onClick="{
+   document.getElementById('myDiv02').innerHTML = myFunc07()
+}"><br>
+
+<div id="myDiv02" style="color:black;">...</div>
 </body>

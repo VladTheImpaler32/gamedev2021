@@ -15,7 +15,7 @@ function myCharCount(obj){
 <a href="https://www.w3schools.com/jsref/prop_html_innerhtml.asp">Good ref for input and output in javascript (innerHTML) (value)</a><br>
 <h4>Example input output code<h4>
 <pre>
-<.input type=button value="myEvent Squares" onClick="{
+&ltinput type=button value="myEvent Squares" onClick="{
 	let myIn01 = document.getElementById('myNum01').value
 	document.getElementById('myDiv01').innerHTML = myIn01 + ' squared = ' +myIn01*myIn01
 }"><br>
@@ -55,9 +55,21 @@ function myCharCount(obj){
 <div id=myDiv04>...</div><br><br>
 
 
-<textarea name="message" onkeyup="myCharCount(this);"></textarea>
+<textarea name="message" onkeypress="myCharCount(this);"></textarea>
 <div id="charNum">0 characters</p>
 
+a:<input id=myRad01 type=radio value="a" name=radio01 onClick="{
+	document.getElementById('myDiv06').innerHTML = 'You selected a!'
+}"><br>
+b:<input id=myRad02 type=radio value="b" name=radio01 onClick="{
+	document.getElementById('myDiv06').innerHTML = 'You selected b!'
+}"><br>
+c:<input id=myRad03 type=radio value="c" name=radio01 onClick="{
+	document.getElementById('myDiv06').innerHTML = 'You selected c!'
+}"><br>
+<div id="myDiv06">...</div><br><br>
+
+<input type=range value="20" min="0" max="100" step="1" oninput="this.nextElementSibling.value = this.value"><output>20</output><br><br>
 
 <u>i have no idea what this achives but i think its cool</u><br>
 hover over me!<input id=myBox02 type=checkbox onMouseOver="{
