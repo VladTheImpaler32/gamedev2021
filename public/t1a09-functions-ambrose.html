@@ -5,7 +5,7 @@
 <h5>version 0.0.1</h5>
 </head>
 
-<body style="background-color:plum; font-size:120%;">
+<body id="myBody01" style="background-color:plum; font-size:120%;">
 <script>
 
 function myExFuncton(){
@@ -29,20 +29,52 @@ function myFunc01(){
 
 function myFunc02(){
 	let myIn01 = parseInt(document.getElementById('myText01').value)
-	if (myIn01 % 2 == 1){
-		let myReply = 'your number: ' + myIn01 + ' is odd!'
+	if (myIn01 % 3 == 0){
+		let myReply = 'your number: ' + myIn01 + ' is a multiple of 3!'
 		return myReply
-		document.body.style.background-color === 'slateblue';
 	} else { 
-		let myReply = 'your number: ' + myIn01 + ' is even!'
+		let myReply = 'your number: ' + myIn01 + ' is not a multiple of 3!'
 		return myReply
-		document.body.style.background-color === 'pink';
 	}
 	
 }
+
+function myFunc03(){
+	let myIn01 = parseInt(document.getElementById('myText01').value)
+	let myIn02 = parseInt(document.getElementById('myText02').value)
+	let myOut = myIn01 ** myIn02
+	return myOut
+}
+
+function myFunc04(){
+	let myIn01 = parseInt(document.getElementById('myText01').value)
+	if (myIn01 % 2 == 1){
+		let myReply = 'your number: ' + myIn01 + ' is a multiple of 3!'
+		document.getElementById('myBody01').style.backgroundColor = 'slateblue';
+		return myReply
+	} else { 
+		let myReply = 'your number: ' + myIn01 + ' is not a multiple of 3!'
+		document.getElementById('myBody01').style.backgroundColor = 'darkturquoise';
+		return myReply
+	}
+	
+}
+
+function myFunc05(){
+	let myIn01 = parseInt(document.getElementById('myText01').value)
+	let myIn02 = parseInt(document.getElementById('myText02').value)
+	let myMath01 = myIn01 ** myIn02
+	let myOut = myIn01 + ' to the power of ' + myIn02 + ' is ' + myIn01 ** myIn02
+	if (myMath01 % 2 == 1) {
+	document.getElementById('myDiv01').style.color = 'red';
+	} else { 
+	document.getElementById('myDiv01').style.color = 'blue';
+	}
+	return myOut
+}
 </script>
 
-</body>
+
 <h2 align=center>t1a09 functions ambrose</h2>
 <a href="https://www.w3schools.com/js/js_functions.asp">Good js function reference</a><br>
 <p>Functions are used to sensibly organize code. they are "called" elsewhere.<br>information can also be passed to functions (more advanced).</p>
@@ -55,17 +87,30 @@ function myGrabNumber(){
 
 <h4>Example working code</h4>
 
-<input type=text id="myText01" value="3"><br>
+<input type=text id="myText01" value="3"><input type=text id="myText02" value="2"><br>
 <input type=button value="Add number to its self" onClick="{
    document.getElementById('myDiv01').innerHTML = myExFuncton()
 }"><br>
 
-<input type=button value="Check if Odd/Even" onClick="{
+<input type=button value="Check X if Odd/Even" onClick="{
    document.getElementById('myDiv01').innerHTML = myFunc01()
 }"><br>
 
-<input type=button value="Change background color depending on odd/even" onClick="{
+<input type=button value="Check X if multiple of 3" onClick="{
    document.getElementById('myDiv01').innerHTML = myFunc02()
 }"><br>
 
-<div id="myDiv01">...</div>
+<input type=button value="X to the power of Y" onClick="{
+   document.getElementById('myDiv01').innerHTML = myFunc03()
+}"><br>
+
+<button type=button onClick="{
+   document.getElementById('myDiv01').innerHTML = myFunc04()
+}"><span style=color:slateblue>if X odd</span>,  <span style=color:darkturquoise>if X even</span></button><br>
+
+<button type=button onClick="{
+   document.getElementById('myDiv01').innerHTML = myFunc05()
+}">X**Y <span style=color:red>if output odd</span>,  <span style=color:blue>if output even</span></button><br>
+
+<div id="myDiv01" style="color:black;">...</div>
+</body>
