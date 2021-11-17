@@ -8,6 +8,8 @@
 <body style="background-color:plum; font-size:120%;">
 
 <h1 align=center>t2a06-spy-name.html</h1>
+
+<h4>Example Decrypt/Encrypt</h4>
 <textarea id="myArea01" rows=4 cols=70>Hello how are you</textarea><br> 
 
 
@@ -29,7 +31,7 @@
 
 <input type=button value="decrypt" onclick="{
    let myTemp = ''
-   myString = document.getElementById('myArea01').value.toLowerCase().split('')
+   myString = document.getElementById('myArea02').value.toLowerCase().split('')
    for (let myLoop=0;   myLoop < myString.length; myLoop++){
       myTemp = myString[myLoop]
       if (myString[myLoop] == 'f') {myTemp  = 'e'} 
@@ -38,8 +40,70 @@
    }
    document.getElementById('myArea03').value = myString.join('')
 }"><br><br>
+<textarea id="myArea03" rows=4 cols=70></textarea><br><br>
+<hr>
 
+<h4>My Encoder/Decoder</h4>
 
-<textarea id="myArea03" rows=4 cols=70></textarea><br> 
+<h5>Base64</h5>
+<textarea id="myArea04" rows=3 cols=40>Hello how are you</textarea><br> 
+<input type=button value="encrypt" onclick="{
+	myString = document.getElementById('myArea04').value
+	myEncode = btoa(myString)
+	document.getElementById('myArea05').innerHTML = myEncode
+}"><br><br>
+<textarea id="myArea05" rows=3 cols=40></textarea><br>
 
+<input type=button value="decrypt" onclick="{
+	myString = document.getElementById('myArea05').value
+	myDecode = atob(myString)
+	document.getElementById('myArea06').innerHTML = myDecode
+}"><br><br>
+<textarea id="myArea06" rows=3 cols=40></textarea><br>
+
+<h5>ROT13</h5>
+<textarea id="myArea07" rows=3 cols=40>Hello how are you</textarea><br> 
+<input type=button value="encrypt" onclick="{
+	const str = document.getElementById('myArea07').value
+    const input = ' ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';
+    const output = '123456789NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm ';
+    let myEncoded = '';
+    for (let myLoop = 0; myLoop < str.length; myLoop++) {
+        const index = input.indexOf(str[myLoop]);
+        myEncoded += output[index];
+    }
+    document.getElementById('myArea08').innerHTML = myEncoded;
+}"><br><br>
+<textarea id="myArea08" rows=3 cols=40></textarea><br>
+
+<input type=button value="decrypt" onclick="{
+	const str = document.getElementById('myArea08').value
+    const input = '123456789NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm ';
+    const output = ' ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';
+    let myEncoded = '';
+    for (let myLoop = 0; myLoop < str.length; myLoop++) {
+        const index = input.indexOf(str[myLoop]);
+        myEncoded += output[index];
+    }
+    document.getElementById('myArea09').innerHTML = myEncoded;
+}"><br><br>
+<textarea id="myArea09" rows=3 cols=40></textarea><br>
+
+<h5>Binary !!NOT WORKING!!</h5>
+<textarea id="myArea10" rows=3 cols=40>Hello how are you</textarea><br> 
+<input type=button value="encrypt" onclick="{
+	myIn = document.getElementById('myArea10').value;
+	for (let myLoop = 0; myLoop < myIn.length; myLoop++) {
+		document.getElementById('myArea11') = myIn[myLoop].charCodeAt(0).toString(2) + " ";
+	}
+}"><br><br>
+<textarea id="myArea11" rows=3 cols=40></textarea><br>
+
+<input type=button value="decrypt" onclick="{
+	myIn = document.getElementById('myArea10').value;
+	for (let myLoop = 0; myLoop < myIn.length; myLoop++) {
+		document.getElementById('myArea11') = myIn[myLoop].charCodeAt(0).toString(2) + " ";
+	}
+}"><br><br>
+<textarea id="myArea09" rows=3 cols=40></textarea><br>
 </body>
