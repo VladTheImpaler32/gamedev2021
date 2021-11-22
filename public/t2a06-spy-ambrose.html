@@ -38,11 +38,11 @@
       if (myString[myLoop] == 'r') {myTemp  = '.'}
 	  if (myString[myLoop] == 's') {myTemp  = '!'} 
       if (myString[myLoop] == 't') {myTemp  = ' '}
-	  if (myString[myLoop] == 'u') {myTemp  = 'f'} 
+	  if (myString[myLoop] == 'u') {myTemp  = '/'} 
       if (myString[myLoop] == 'v') {myTemp  = '1'}
 	  if (myString[myLoop] == 'w') {myTemp  = '2'} 
-      if (myString[myLoop] == 'y') {myTemp  = '3'}
-	  if (myString[myLoop] == 'x') {myTemp  = '4'} 
+      if (myString[myLoop] == 'x') {myTemp  = '3'}
+	  if (myString[myLoop] == 'y') {myTemp  = '4'} 
       if (myString[myLoop] == 'z') {myTemp  = '5'}
 	  if (myString[myLoop] == 'A') {myTemp  = '6'} 
       if (myString[myLoop] == 'B') {myTemp  = '7'}
@@ -119,8 +119,8 @@
       if (myString[myLoop] == '.') {myTemp  = 'r'}
 	  if (myString[myLoop] == '!') {myTemp  = 's'} 
       if (myString[myLoop] == ' ') {myTemp  = 't'}
-	  if (myString[myLoop] == 'f') {myTemp  = 'u'} 
-      if (myString[myLoop] == 'l') {myTemp  = 'v'}
+	  if (myString[myLoop] == '/') {myTemp  = 'u'} 
+      if (myString[myLoop] == '1') {myTemp  = 'v'}
 	  if (myString[myLoop] == '2') {myTemp  = 'w'} 
       if (myString[myLoop] == '3') {myTemp  = 'x'}
 	  if (myString[myLoop] == '4') {myTemp  = 'y'} 
@@ -190,7 +190,7 @@
 	document.getElementById('myArea06').innerHTML = myDecode
 }"><br><br>
 <textarea id="myArea06" rows=3 cols=40></textarea><br>
-
+<hr>
 <h5>ROT13</h5>
 <textarea id="myArea07" rows=3 cols=40>Hello how are you</textarea><br> 
 <input type=button value="encrypt" onclick="{
@@ -218,8 +218,8 @@
     document.getElementById('myArea09').innerHTML = myEncoded;
 }"><br><br>
 <textarea id="myArea09" rows=3 cols=40></textarea><br>
-
-<h5>Binary !!NOT WORKING!!</h5>
+<hr>
+<h5>Binary</h5>
 <script>
 function myConvert() {
   var output = document.getElementById('myArea11');
@@ -239,7 +239,7 @@ function myConvert() {
 <script>
 function myConvertBack(str) {
 output = str.split(" ").map(input => String.fromCharCode(parseInt(input,2).toString(10))).join("");
-document.getElementById('myArea12').innerHTML = output
+return output
 }
 </script>
 <input type=button value="decrypt" onclick="{
