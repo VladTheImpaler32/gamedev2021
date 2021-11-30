@@ -19,7 +19,7 @@
   }
 }">
 
-<input type=button value="Show" onclick="{
+<input type=button id="myShow" value="Show" onclick="{
   let myTemp = ''
   for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
      myTemp += myLoop + ' = '+ myCards[myLoop] + '<br>'
@@ -37,6 +37,7 @@
 	 } else {
 		myTemp = myTemp
 	 }
+     document.getElementById('myShow').click();
 	}
 }">
 
