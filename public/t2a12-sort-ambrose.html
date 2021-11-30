@@ -9,7 +9,7 @@
 <h1 align=center>t2a12 Sort by Fred</h1>
 
 <script>
-   let myMax = 5      // 52 when working
+   let myMax = 10      // 52 when working
    let myCards = new Array(myMax)  
 </script>
 
@@ -29,7 +29,7 @@
 
 <input type=button value="Sort" onclick="{
   let myTemp = 0
-  for ( let myLoop = 0;   myLoop < myMax;  myLoop++){
+  for ( let myLoop = 0;   myLoop < Math.pow(myMax,2);  myLoop++){
      if (myCards[myLoop] >= myCards[myLoop+1]) {
 		myTemp = myCards[myLoop]
 		myCards[myLoop] = myCards[myLoop+1]
