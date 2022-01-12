@@ -1,0 +1,185 @@
+<head>
+<title>oragami simulator</title>
+<!--https://adarkroom.doublespeakgames.com/-->
+<style>
+    .button {
+        position: relative;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        border: 1px solid white;
+        width: 100px;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    .oldNotif {
+        color: dimgray;
+    }
+
+    div#main {
+        position: absolute;
+        top: 200px;
+        left: 20px;
+        height: 400px;
+        width: 900px;
+        overflow: hidden;
+    }
+
+    div#notifs {
+        float: left;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 13%;
+        width: 100%;
+        background-color: black;
+    }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.2;
+        position: relative;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        border: 1px solid white;
+        width: 100px;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+    }
+
+
+</style>
+</head>
+
+<body style="background-color: #292929; color: white;" onload="myClock();">
+<script>
+    let myFolds = 0
+
+    function myClock() {
+        setInterval(function () {
+            myNotif(myFolds)
+        }, 25);
+
+        setInterval(function () {
+            if (myFolds >= 100) {
+                document.getElementById('make friends').className = "button";
+                document.getElementById('myFriendCount').className = "button";
+            } if (myFolds < 100) {
+                document.getElementById('make friends').className = "button; disabled";
+                document.getElementById('myFriendCount').className = "button; disabled";
+            }
+
+
+            if (myFolds >= 500) {
+                document.getElementById('recruit family').className = "button";
+                document.getElementById('myFamilyCount').className = "button";
+            } if (myFolds < 500) {
+                document.getElementById('recruit family').className = "button; disabled";
+                document.getElementById('myFamilyCount').className = "button; disabled";
+            }
+
+
+            if (myFolds >= 1000) {
+                document.getElementById('find unskilled labourers').className = "button";
+                document.getElementById('myLabourerCount').className = "button";
+            } if (myFolds < 1000) {
+                document.getElementById('find unskilled labourers').className = "button; disabled";
+                document.getElementById('myLabourerCount').className = "button; disabled";
+            }
+        }, 10);
+
+
+    }
+
+    function myNotif(msg) {
+        document.getElementById('notif5').innerHTML = document.getElementById('notif4').innerHTML
+        document.getElementById('notif4').innerHTML = document.getElementById('notif3').innerHTML
+        document.getElementById('notif3').innerHTML = document.getElementById('notif2').innerHTML
+        document.getElementById('notif2').innerHTML = document.getElementById('notif1').innerHTML
+        document.getElementById('notif1').innerHTML = msg
+
+    }
+
+    function myFold() {
+        myFolds = myFolds + 1
+    }
+
+    function myDebug(myFoldsDebug) {
+        myFolds = myFolds + parseInt(myFoldsDebug)
+    }
+
+    myTemp01 = 0
+    myTemp02 = 0
+    myTemp03 = 0
+	function myMakeFriends(){
+        myFolds = myFolds - 100
+        setInterval(function () {
+            myFolds = myFolds + 1
+        }, 10000);
+
+        document.getElementById('myFriendCount').value = myTemp01 = myTemp01 + 1
+    }
+
+    function myRecruitFamily(){
+        myFolds = myFolds - 500
+        setInterval(function () {
+            myFolds = myFolds + 5
+        }, 10000);
+
+        document.getElementById('myFamilyCount').value = myTemp02 = myTemp02 + 1
+    }
+
+    function myUnskilledLabourers(){
+        myFolds = myFolds - 1000
+        setInterval(function () {
+            myFolds = myFolds + 10
+        }, 10000);
+
+        document.getElementById('myLabourerCount').value = myTemp03 = myTemp03 + 1
+    }
+
+</script>
+<h2 style="text-align: center; color: white;">folding</h2>
+<div id="main">
+
+<input type="button" value="fold" class="button" onclick="{
+    myFold()
+}"><br><br>
+<input type="number" value="100" id="myDebug" onchange="myDebug(document.getElementById('myDebug').value)"><br><br>
+
+
+<input type="button" id="make friends" value="make friends" class="button; disabled" onclick="{
+    myMakeFriends()
+}"><input type="text" id="myFriendCount" class="button; disabled" style="width:30px" value="0"><br><br>
+
+
+<input type="button" id="recruit family" value="recruit family" class="button; disabled" onclick="{
+    myRecruitFamily()
+}"><input type="text" id="myFamilyCount" class="button; disabled" style="width:30px" value="0"><br><br>
+
+
+<input type="button" id="find unskilled labourers" value="find labourers" class="button; disabled" onclick="{
+    myUnskilledLabourers()
+}"><input type="text" id="myLabourerCount" class="button; disabled" style="width:30px" value="0"><br><br>
+
+
+<input type="button" id="get child labour" value="child labourers" class="button; disabled" onclick="{
+    myChildLabourers()
+}"><input type="text" id="myChildCount" class="button; disabled" style="width:30px" value="0"><br><br>
+
+
+
+</div>
+
+
+<div id="notifs">
+    <span>&nbsp&#8227&nbsp</span><span id="notif5" class="oldNotif"></span><br>
+    <span>&nbsp&#8227&nbsp</span><span id="notif4" class="oldNotif"></span><br>
+    <span>&nbsp&#8227&nbsp</span><span id="notif3" class="oldNotif"></span><br>
+    <span>&nbsp&#8227&nbsp</span><span id="notif2" class="oldNotif"></span><br>
+    <span>&nbsp>&nbsp</span><span id="notif1"></span><br>
+</div>
+</body>
