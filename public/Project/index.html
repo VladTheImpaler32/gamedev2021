@@ -1,0 +1,319 @@
+<head>
+<title>origami simulator</title>
+<!--https://adarkroom.doublespeakgames.com/-->
+<style>
+    .button {
+        position: relative;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        border: 1px solid white;
+        width: 100px;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        height: 29px;
+
+    }
+
+    .upgradebutton {
+        position: relative;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        border: 1px solid white;
+        display: inline;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        height: 29px;
+
+    }
+
+    .oldNotif {
+        color: dimgray;
+    }
+
+    div#main {
+        position: absolute;
+        top: 200px;
+        left: 20px;
+        height: 400px;
+        width: 250px;
+        overflow: hidden;
+    }
+
+    div#second {
+        position: absolute;
+        top: 200px;
+        left: 270px;
+        height: 400px;
+        width: 250px;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div#debug {
+        position: absolute;
+        top: 200px;
+        left: 600px;
+        height: 400px;
+        width: 250px;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+    }
+
+    div#notifs {
+        float: left;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 13%;
+        width: 100%;
+        background-color: black;
+    }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.2;
+        position: relative;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        border: 1px solid white;
+        display: inline;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+    }
+
+    .counter {
+        position: relative;
+        background-color: transparent;
+        color: white;
+        text-align: center;
+        border: 1px solid white;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        height: 29px;
+        display: inline; !important;
+
+    }
+
+
+</style>
+</head>
+
+<body style="background-color: #292929; color: white;" onload="myClock(); myFoldsPS();">
+<script>
+    let myFolds = 0
+    let myFPS = 0
+
+
+    function myFoldsPS() {
+        setInterval( function (){
+            myFolds = myFolds + myFPS
+        }, 1000);
+
+    }
+
+    function myClock() {
+        setInterval(function () {
+            myNotif(parseInt(myFolds))
+        }, 25);
+
+        setInterval(function () {
+            if (myFolds >= 100) {
+                document.getElementById('make friends').className = "button";
+                document.getElementById('myFriendCount').className = "counter";
+            } if (myFolds < 100) {
+                document.getElementById('make friends').className = "button; disabled";
+                document.getElementById('myFriendCount').className = "counter; disabled";
+            }
+
+
+            if (myFolds >= 500) {
+                document.getElementById('recruit family').className = "button";
+                document.getElementById('myFamilyCount').className = "counter";
+            } if (myFolds < 500) {
+                document.getElementById('recruit family').className = "button; disabled";
+                document.getElementById('myFamilyCount').className = "counter; disabled";
+            }
+
+
+            if (myFolds >= 1000) {
+                document.getElementById('find unskilled labourers').className = "button";
+                document.getElementById('myLabourerCount').className = "counter";
+            } if (myFolds < 1000) {
+                document.getElementById('find unskilled labourers').className = "button; disabled";
+                document.getElementById('myLabourerCount').className = "counter; disabled";
+            }
+
+
+            if (myFolds >= 5000) {
+                document.getElementById('get child labour').className = "button";
+                document.getElementById('myChildCount').className = "counter";
+            } if (myFolds < 5000) {
+                document.getElementById('get child labour').className = "button; disabled";
+                document.getElementById('myChildCount').className = "counter; disabled";
+            }
+
+
+            if (myFolds >= 10000) {
+                document.getElementById('get slave labour').className = "button";
+                document.getElementById('mySlaveCount').className = "counter";
+            } if (myFolds < 10000) {
+                document.getElementById('get slave labour').className = "button; disabled";
+                document.getElementById('mySlaveCount').className = "counter; disabled";
+            }
+
+
+            if (myFolds >= 100000) {
+                document.getElementById('work longer hours').className = "upgradebutton";
+            } if (myFolds < 100000) {
+                document.getElementById('work longer hours').className = "upgradebutton; disabled";
+            }
+
+
+            if (myFolds >= 200000) {
+                document.getElementById('give employees adrenaline').className = "upgradebutton";
+            } if (myFolds < 200000) {
+                document.getElementById('give employees adrenaline').className = "upgradebutton; disabled";
+            }
+        }, 10);
+
+
+    }
+
+    function myNotif(msg) {
+        document.getElementById('notif5').innerHTML = document.getElementById('notif4').innerHTML
+        document.getElementById('notif4').innerHTML = document.getElementById('notif3').innerHTML
+        document.getElementById('notif3').innerHTML = document.getElementById('notif2').innerHTML
+        document.getElementById('notif2').innerHTML = document.getElementById('notif1').innerHTML
+        document.getElementById('notif1').innerHTML = msg
+
+    }
+
+    function myFold() {
+        myFolds = myFolds + 1
+    }
+
+    function myDebug(myFoldsDebug) {
+        myFolds = myFolds + parseInt(myFoldsDebug)
+    }
+
+    myTemp01 = 0
+    myTemp02 = 0
+    myTemp03 = 0
+    myTemp04 = 0
+    myTemp05 = 0
+	function myMakeFriends(){
+        myFolds = myFolds - 100
+        myFPS = myFPS + 1
+
+        document.getElementById('myFriendCount').innerHTML = myTemp01 = myTemp01 + 1
+    }
+
+    function myRecruitFamily(){
+        myFolds = myFolds - 500
+        myFPS = myFPS + 5
+
+        document.getElementById('myFamilyCount').innerHTML = myTemp02 = myTemp02 + 1
+    }
+
+    function myUnskilledLabourers(){
+        myFolds = myFolds - 1000
+        myFPS = myFPS + 10
+
+        document.getElementById('myLabourerCount').innerHTML = myTemp03 = myTemp03 + 1
+    }
+
+    function myChildLabourers(){
+        myFolds = myFolds - 5000
+        myFPS = myFPS + 50
+
+        document.getElementById('myChildCount').innerHTML = myTemp04 = myTemp04 + 1
+    }
+
+    function mySlaveLabourers(){
+        myFolds = myFolds - 10000
+        myFPS = myFPS + 100
+
+        document.getElementById('mySlaveCount').innerHTML = myTemp05 = myTemp05 + 1
+    }
+
+    function myLongerHours(){
+        myFolds = myFolds - 100000
+        myFPS = myFPS + myFPS * 0.2
+    }
+
+    function myGiveadrenaline(){
+        myFolds = myFolds - 200000
+        myFPS = myFPS + myFPS * 0.5
+    }
+
+</script>
+<h2 style="text-align: center; color: white;">Universal Origami</h2>
+<div id="main">
+<h3>Production</h3>
+
+<input type="button" value="fold origami" class="button" onclick="{
+    myFold()
+}"><br><br>
+
+
+
+<input type="button" id="make friends" value="make friends" class="button; disabled" onclick="{
+    myMakeFriends()
+}">&nbsp&nbsp<div id="myFriendCount" class="disabled; counter" >0</div><br><br>
+
+
+<input type="button" id="recruit family" value="recruit family" class="button; disabled" onclick="{
+    myRecruitFamily()
+}">&nbsp&nbsp<div id="myFamilyCount" class="disabled; counter" >0</div><br><br>
+
+
+<input type="button" id="find unskilled labourers" value="find labourers" class="button; disabled" onclick="{
+    myUnskilledLabourers()
+}">&nbsp&nbsp<div id="myLabourerCount" class="disabled; counter" >0</div><br><br>
+
+
+<input type="button" id="get child labour" value="child labourers" class="button; disabled" onclick="{
+    myChildLabourers()
+}">&nbsp&nbsp<div id="myChildCount" class="disabled; counter" >0</div><br><br>
+
+<input type="button" id="get slave labour" value="slave labour" class="button; disabled" onclick="{
+    mySlaveLabourers()
+}">&nbsp&nbsp<div id="mySlaveCount" class="disabled; counter" >0</div><br><br>
+
+
+</div>
+<div id="second">
+    <h3>Upgrades</h3>
+        <input type="button" id="work longer hours" value="work longer hours" class="upgradebutton; disabled" onclick="{
+            myLongerHours()
+        }"><br><br>
+
+        <input type="button" id="give employees adrenaline" value="give employees adrenaline" class="upgradebutton; disabled" onclick="{
+            myGiveadrenaline()
+        }">
+</div>
+
+<div id="debug">
+    <h3>Debug/Marking Panel</h3>
+    <h5>Use for adding origami without having to click a bunch</h5>
+    <input type="number" value="100" id="myDebug" onchange="myDebug(document.getElementById('myDebug').value)"><br><br>
+    <h5>Click the "fold origami" button to fold 1 paper crane, the more cranes you fold the more people you can recruit to help you.</h5>
+    <h5>I was going to add more upgrades but ran out of time :/</h5>
+</div>
+
+<div id="notifs">
+    <span>&nbsp&#8227&nbsp</span><span id="notif5" class="oldNotif"></span><br>
+    <span>&nbsp&#8227&nbsp</span><span id="notif4" class="oldNotif"></span><br>
+    <span>&nbsp&#8227&nbsp</span><span id="notif3" class="oldNotif"></span><br>
+    <span>&nbsp&#8227&nbsp</span><span id="notif2" class="oldNotif"></span><br>
+    <span>&nbsp>&nbsp</span><span id="notif1"></span><br>
+</div>
+</body>
