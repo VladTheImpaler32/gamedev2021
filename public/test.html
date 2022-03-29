@@ -1,75 +1,37 @@
-<htlm>
- <head>
-  <style>
+<h5>Caleb Cypherwheel test</h5>
 
-.div1 {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  animation: 
-    myfirst 2s;
-    linear 1s;
-    alternate;
-    
-}
+<textarea id="myArea13" rows=3 cols=40>Hello how are you</textarea><br> 
+<input type="number" value="3" id="myKey">
+<input type=button value="encrypt" onclick="{
+	let key = document.getElementById('myKey').value
+    const str = document.getElementById('myArea13').value
+    const input = ' ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';
+    const output = '123456789NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm ';
+    let myEncoded = '';
+    let myIndex ='';
+    for (let myLoop = 0; myLoop < str.length; myLoop++) {
+        const index = input.indexOf(str[myLoop]);
+        const indexShifted = parseInt(index) + parseInt(key)
+        console.log(indexShifted)
+        myEncoded += output[indexShifted];
+    }
+    document.getElementById('myArea14').innerHTML = myEncoded;
 
-@keyframes myfirst {
-  0%    {left:0px; top:0px;}
-  20%   {left:200px; top:0px;}
-  40%   {left:0px; top:200px}
-  60%   {transform: rotate( 45deg ) scale( 1 );}
-  80%   {transform: rotate( -90deg ) scale( 2 );}
-}
+}"><br><br>
 
-
-</style>
-</head>
-<body>
-Version 0.1.6</br>
-<h1 align=center>T1A04 CSS by Caleb</h1>
-
-Reference Link 
-<a href="https://www.w3schools.com/cssref/default.asp">w3schools</a><br>
-
-Properly done with a .css file listing all css commands for your
-website<br>
-Another way to do CSS (Cascading Style Sheets: determine colors 
-locations extra effects on the tags on your web page)<br>
-
-Here is  typical in document style
-<pre>
-b {
-  color: #00ff00;
-}
-</pre><br>
-
-I do CSS inside the tag. It overpowers all other methods<br>
-
-<b > This is bold</b><br>
-<b id="myB1" style="color:#00ff00; background-Color:blue; "> This is bold</b>
-<input type=button value=Change onclick="{
-    document.getElementById('myB1').style.color = 'red'
-    document.getElementById('myB1').style.backgroundColor = 'yellow'
-}"><br>
-
-<script>
-function myReload() {
-  window.location.reload();
-}
-</script>
-
-<textarea id="move" style="position:relative; left:0; top:0; width:200; height:50; ">
-Advanced see if you move this textarea
-</textarea><br>
-
-<input type=button value="Let the sliding commence" onclick="{
-   document.getElementById('move').className = 'div1';
-   setTimeout(myReload, 3000);
- }">
-
-<button onClick="window.location.reload();">Refresh Page</button>
-
-</body>
-</html>
-
-
+<textarea id="myArea14" rows=3 cols=40></textarea><br>
+<input type="number" value="3" id="myKey1">
+<input type=button value="decrypt" onclick="{
+	let key1 = document.getElementById('myKey1').value
+    const str = document.getElementById('myArea14').value
+    const input = '123456789NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm ';
+    const output = ' ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789';
+    let myEncoded = '';
+    for (let myLoop = 0; myLoop < str.length; myLoop++) {
+        const index = input.indexOf(str[myLoop]);
+        const indexShifted = parseInt(index) - parseInt(key1)
+        myEncoded += output[indexShifted];
+    }
+    document.getElementById('myArea15').innerHTML = myEncoded;
+}"><br><br>
+<textarea id="myArea15" rows=3 cols=40></textarea><br>
